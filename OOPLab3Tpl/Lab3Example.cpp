@@ -20,7 +20,8 @@ public:
         radius = valueRadius;
         color = valueColor;
     }
-	int S(){
+
+    int S(){
         return 3.14 * pow(radius, 2);
     }
     int C(){
@@ -54,7 +55,46 @@ public:
     float re;
     float im;
     static int count;
-    
+    ComplexValue();
+    ComplexValue(float value);
+    ComplexValue(float *v);
+    void SetValue(float value){
+        re = value;
+        im = value;
+    }
+    float GetRe(){
+        return re;
+    }
+    float GetIm(){
+        return im;
+    }
+    void Sum(){
+        cout << "Sum: " << re+im << endl;
+    }
+    void Substriction(){
+        cout << "Substriction: " << re-im << endl;
+    }
+    void Multiplication(){
+        cout << "Multiplication: " << re*im << endl;
+    }
+    void Division(){
+        cout << "Division: " << re/im << endl;
+    }
+    bool More(float x, float y){
+        if(x > y){
+            return true;
+        } else return false;
+    }
+    bool Less(float x, float y){
+        if(x < y){
+            return true;
+        } else return false;
+    }
+    bool Even(float x, float y){
+        if(x < y){
+            return true;
+        } else return false;
+    }
     ~ComplexValue(){
 
         cout << "re: " << re << endl;
@@ -80,7 +120,20 @@ ComplexValue::ComplexValue(float *v){
         count++;
 }
 
-int main(){
 
+int main(){
+    ComplexValue value;
+    ComplexValue value1(1.3);
+
+    cout << value.GetRe();
+    cout << value.GetIm();
+    value.Sum();
+    value.Substriction();
+    value.Multiplication();
+    value.Division();
+    cout << value.More(3.95, 5.21) << endl;
+    cout << value.Less(3.95, 5.21) << endl;
+    cout << value.Even(3.95, 5.21) << endl;
+    cout << "Count: " << value.count << endl;
     return 0;
 }
