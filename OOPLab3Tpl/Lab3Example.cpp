@@ -49,8 +49,36 @@ public:
         cout << "Color: " << color << endl;
     }
 };
+class ComplexValue{
+public:
+    float re;
+    float im;
+    static int count;
+    
+    ~ComplexValue(){
 
+        cout << "re: " << re << endl;
+        cout << "im: " << im << endl;
+    }
 
+};
+int ComplexValue::count = 0;
+ComplexValue::ComplexValue(){ 
+        re = 0; 
+        im = 0;
+        count++;
+}
+ComplexValue::ComplexValue(float value){
+        re = value; 
+        im = value;
+        count++;
+}
+ComplexValue::ComplexValue(float *v){
+        if (v == nullptr) {
+            
+        }
+        count++;
+}
 
 int main(){
 
